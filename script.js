@@ -17,13 +17,15 @@ function showMainMenu() {
     "Double Counter Support",
     `<p>What are you having trouble with?</p>`,
     [
-      { label: "Alt detection", action: "alt_intro()" },
-      { label: "VPN / Proxy", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" },
+      { label: "Alt Detection", action: "alt_intro()" },
+      { label: "VPN Intrusion", action: "vpn_intro()" },
+      { label: "Crawlers are not allowed", action: "vpn_crawlers()" },
       { label: "Setup", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" },
       { label: "Other", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" }
     ]
   );
 }
+
 
 /* ALT DETECTION FLOW */
 
@@ -31,7 +33,7 @@ function alt_intro() {
   setScreen(
     "Alt detection",
     `
-    <p>This applies if you saw any of the following messages:</p>
+    <p> If you see any of the following messages, then it's an Alt Detection:</p>
     <ul>
       <li>You were automatically banned by Double Counter for: alt account</li>
       <li>You already have an account in this server</li>
@@ -51,18 +53,6 @@ function alt_meaning() {
     "What this means",
     `
     <p>Your account was linked to another account during verification.</p>
-    `,
-    [
-      { label: "Continue", action: "alt_why()" }
-    ]
-  );
-}
-
-function alt_why() {
-  setScreen(
-    "Why this happens",
-    `
-    <p>Accounts are linked when they share technical data.</p>
     <p>This usually happens if:</p>
     <ul>
       <li>The same device or Wi-Fi was used</li>
@@ -95,48 +85,18 @@ function alt_owned_account() {
   setScreen(
     "Account belongs to you",
     `
-    <p>Your account is marked as an alternate and cannot be globally verified.</p>
+    <p>Your account is marked as an alt and cannot be globally verified.</p>
 
     <p>
-      Double Counter links accounts across servers to prevent evasion of moderation actions.
-      This status cannot be changed by Double Counter for security and transparency reasons.
+      Most servers that use Double Counter use the Global Detections mode, which links accounts across servers to prevent evasion of issued punishments. Double Counter staff can NOT help you with this or change this link for security and transparency reasons.
     </p>
 
     <p>
-      Data is retained according to our Privacy Policy.
-      You must contact the staff of the server you wish to join using their support or ticket system.
+      Data is retained according to the Privacy Policy shown to you at the time of verification. You need to contact the staff team of the server you are trying to verify in using their modmail/ticket system or by DMing their staff, depending on the server. Double Counter staff have neither the ability nor the authority to intervene on how other servers are run.
     </p>
 
     <p>
-      If your other account is still accessible, you may use it to contact server staff.
-      Different servers may handle this differently.
-    </p>
-    `,
-    [
-      { label: "Continue", action: "alt_permanent()" }
-    ]
-  );
-}
-
-function alt_owned_account() {
-  setScreen(
-    "Account belongs to you",
-    `
-    <p>Your account is marked as an alternate and cannot be globally verified.</p>
-
-    <p>
-      Double Counter links accounts across servers to prevent evasion of moderation actions.
-      This status cannot be changed by Double Counter for security and transparency reasons.
-    </p>
-
-    <p>
-      Data is retained according to our Privacy Policy.
-      You must contact the staff of the server you wish to join using their support or ticket system.
-    </p>
-
-    <p>
-      If your other account is still accessible, you may use it to contact server staff.
-      Different servers may handle this differently.
+      If your other account (the main) is still accessible, you may use it to contact server staff and have it handled at their discretion.
     </p>
     `,
     [
@@ -150,18 +110,15 @@ function alt_deleted_account() {
     "Previous account unavailable",
     `
     <p>
-      If your previous account was deleted, disabled, or banned,
-      you cannot verify a new account in servers using Double Counter.
+      If your previous account was deleted, disabled, or banned, you cannot verify a new account on servers using Double Counter's Global Detections mode.
     </p>
 
     <p>
-      This prevents circumvention of bans or other moderation actions.
-      Double Counter cannot assist with this.
+      This prevents malicious actors from circumventing bans or other punishments Double Counter staff can NOT help you with this or change this link for security and transparency reasons.
     </p>
 
     <p>
-      Contact the staff of the server you are trying to join.
-      Manual verification is entirely at their discretion.
+      You need to contact the staff team of the server you are trying to verify in using their modmail/ticket system or by DMing their staff, depending on the server. Double Counter staff have neither the ability nor the authority to intervene in how other servers are run.
     </p>
 
     <p>
@@ -187,23 +144,22 @@ function alt_instant_ban() {
       You were likely banned because the server has <strong>Alt Auto-Ban</strong> enabled.
     </p>
 
-    <p>For the ban to be lifted, the server must:</p>
+    <p>For you to be able to verify, the server must:</p>
 
     <ol>
       <li>Disable Alt Auto-Ban</li>
       <li>Remove you from the ban list</li>
       <li>Allow you to rejoin the server</li>
       <li>Manually verify you (do not attempt verification again)</li>
-      <li>Re-enable Alt Auto-Ban if desired</li>
+      <li>Re-enable Alt Auto-Ban (optional)</li>
     </ol>
 
     <p>
-      If the server chooses not to complete these steps,
-      the ban cannot be lifted.
+      If the server decides not to perform these steps, then there is no solution forward.
     </p>
 
     <p>
-      Double Counter cannot perform any of these actions.
+     Double Counter staff have neither the ability nor the authority to intervene in how other servers are run and as such Double Counter cannot perform any of these actions.
     </p>
     `,
     [
@@ -217,13 +173,11 @@ function alt_locked_account() {
     "Account temporarily locked",
     `
     <p>
-      If your account was locked due to failed attempts,
-      it will automatically unlock after approximately 30 minutes.
+      If your account was locked due to failed attempts, it will automatically unlock after approximately 30 minutes.
     </p>
 
     <p>
-      However, the issue that caused the lock will still exist.
-      Attempting to re-verify will result in the same outcome.
+      However, the issue that caused the lock will still exist. Attempting to re-verify will result in the same outcome.
     </p>
     `,
     [
@@ -238,7 +192,7 @@ function alt_permanent() {
     `
     <p><strong>No.</strong></p>
     <p>Once an account is linked, the detection is permanent.</p>
-    <p>We cannot edit or reset it.</p>
+    <p>We cannot edit or reset it. Making a data deletion request will NOT change alt detections</p>
     `,
     [
       { label: "Continue", action: "alt_lost_account()" }
@@ -251,8 +205,15 @@ function alt_lost_account() {
     "Important",
     `
     <p>
-      If your original verified account was banned, deleted, hacked,
-      or is no longer accessible, you cannot verify again with a new account.
+      If your original verified account was banned, deleted, hacked, or is no longer accessible, you cannot verify again with a new account.
+    </p>
+
+    <p>
+      This prevents malicious actors from circumventing bans or other punishments Double Counter staff can NOT help you with this or change this link for security and transparency reasons.
+    </p>
+
+    <p>
+      You need to contact the staff team of the server you are trying to verify in using their modmail/ticket system or by DMing their staff, depending on the server. Double Counter staff have neither the ability nor the authority to intervene in how other servers are run.
     </p>
     `,
     [
@@ -266,12 +227,7 @@ function alt_final() {
     "Who can help?",
     `
     <p>Only the staff of the server you are trying to join can decide to allow your account.</p>
-    <p>Double Counter cannot:</p>
-    <ul>
-      <li>Remove alt detections</li>
-      <li>Override server bans</li>
-      <li>Manually verify users</li>
-    </ul>
+    <p>Double Counter staff cannot remove alt detections, unban users or manually verify them</p>
     `,
     [
       { label: "Go back to start", action: "showMainMenu()" }
@@ -279,7 +235,129 @@ function alt_final() {
   );
 }
 
-/* ITS ALIVE!!!! ITS ALIVE!!!! */
+function vpn_intro() {
+  setScreen(
+    "VPN Intrusion",
+    `
+    <p>This applies if you saw messages such as:</p>
+    <ul>
+      <li>You have been blocked for using a VPN</li>
+      <li>You’re using a VPN</li>
+      <li>VPNs are not allowed in this server</li>
+    </ul>
+    `,
+    [
+      { label: "Yes, I saw one of these", action: "vpn_why()" },
+      { label: "No, something else", action: "showMainMenu()" }
+    ]
+  );
+}
+
+function vpn_why() {
+  setScreen(
+    "Why does this happens",
+    `
+    <p>
+      Double Counter blocks connections that appear to come from VPNs, proxies, CDNs, or other services that hide or mask your real connection.
+    </p>
+
+    <p>
+      This prevents abuse, ban evasion, and certain alt-account evasion techniques.
+    </p>
+    `,
+    [
+      { label: "Continue", action: "vpn_common_triggers()" }
+    ]
+  );
+}
+
+function vpn_common_triggers() {
+  setScreen(
+    "Common reasons for a VPN block",
+    `
+    <p>You may see this block even if you are not intentionally using a VPN.</p>
+
+    <ul>
+      <li>Ad blockers or privacy extensions that modify network requests</li>
+      <li>Apple settings such as Hide IP Address or iCloud Private Relay</li>
+      <li>Privacy-focused browsers like Brave or Opera</li>
+      <li>Shared or proxy IPs provided by your ISP</li>
+    </ul>
+    `,
+    [
+      { label: "I saw 'Crawlers are not allowed'", action: "vpn_crawlers()" },
+      { label: "Continue", action: "vpn_fix()" }
+    ]
+  );
+}
+
+function vpn_crawlers() {
+  setScreen(
+    "Crawlers are not allowed",
+    `
+    <p>This block is commonly triggered by:</p>
+
+    <ul>
+      <li>Using Discord’s in-app browser on mobile</li>
+      <li>Cloudflare WARP, DNS modifiers, or similar tools</li>
+      <li>Browser extensions or proxy settings that alter your fingerprint</li>
+    </ul>
+
+    <p>
+      Open the verification link in your device’s default browser and disable the listed tools temporarily, then retry verification.
+    </p>
+    `,
+    [
+      { label: "Continue", action: "vpn_fix()" }
+    ]
+  );
+}
+
+function vpn_fix() {
+  setScreen(
+    "What you can do",
+    `
+    <ul>
+      <li>Disable VPNs, proxies, DNS modifiers, and privacy tools</li>
+      <li>Turn off ad blockers and network-altering extensions</li>
+      <li>On iPhone/iPad: disable Hide IP and iCloud Private Relay</li>
+      <li>Use a standard browser like Chrome or Edge</li>
+      <li>Retry verification, then re-enable tools if desired</li>
+    </ul>
+    `,
+    [
+      { label: "Continue", action: "vpn_final()" }
+    ]
+  );
+}
+
+function vpn_final() {
+  setScreen(
+    "Still blocked?",
+    `
+    <p>
+      If you still cannot verify after disabling the triggering settings,
+      contact the staff of the server you are trying to join.
+    </p>
+
+    <p>
+      Some servers may offer manual verification, but this is entirely
+      at their discretion.
+    </p>
+
+    <p>
+      Double Counter cannot bypass VPN blocks or override server decisions.
+    </p>
+    `,
+    [
+      { label: "Go back to start", action: "showMainMenu()" }
+    ]
+  );
+}
+
+
+/* IT'S ALIVE!!!! IT'S ALIVE!!!! */
 
 showMainMenu();
+
 
