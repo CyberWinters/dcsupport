@@ -1,7 +1,7 @@
 const app = document.getElementById("app");
 
 function setScreen(title, body, buttons) {
-  let html = `<h2>${title}</h2><p>${body}</p>`;
+  let html = `<h2>${title}</h2>${body}`;
 
   buttons.forEach(btn => {
     html += `<button onclick="${btn.action}">${btn.label}</button>`;
@@ -10,26 +10,35 @@ function setScreen(title, body, buttons) {
   app.innerHTML = html;
 }
 
+/* MAIN MENU */
+
 function showMainMenu() {
   setScreen(
     "Double Counter Support",
-    "What are you having trouble with?",
+    `<p>What are you having trouble with?</p>`,
     [
       { label: "Alt detection", action: "alt_intro()" },
-      { label: "VPN / Proxy", action: "alert('Not added yet')" },
-      { label: "Setup", action: "alert('Not added yet')" }
+      { label: "VPN / Proxy", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" },
+      { label: "Setup", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" },
+      { label: "Other", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" }
     ]
   );
 }
 
+/* ALT DETECTION FLOW */
+
 function alt_intro() {
   setScreen(
     "Alt detection",
-    "This applies if you saw any of the following messages:<br><br>" +
-    "• You were automatically banned by Double Counter for: alt account<br>" +
-    "• You already have an account in this server<br>" +
-    "• You were detected as an ALT of another account<br>" +
-    "• You already have an account verified with Double Counter",
+    `
+    <p>This applies if you saw any of the following messages:</p>
+    <ul>
+      <li>You were automatically banned by Double Counter for: alt account</li>
+      <li>You already have an account in this server</li>
+      <li>You were detected as an ALT of another account</li>
+      <li>You already have an account verified with Double Counter</li>
+    </ul>
+    `,
     [
       { label: "Yes, I saw one of these", action: "alt_meaning()" },
       { label: "No, something else", action: "showMainMenu()" }
@@ -40,7 +49,9 @@ function alt_intro() {
 function alt_meaning() {
   setScreen(
     "What this means",
-    "Your account was linked to another account during verification.",
+    `
+    <p>Your account was linked to another account during verification.</p>
+    `,
     [
       { label: "Continue", action: "alt_why()" }
     ]
@@ -50,11 +61,15 @@ function alt_meaning() {
 function alt_why() {
   setScreen(
     "Why this happens",
-    "Accounts are linked when they share technical data.<br><br>" +
-    "This usually happens if:<br>" +
-    "• The same device or Wi-Fi was used<br>" +
-    "• Someone clicked another person’s verification link<br>" +
-    "• Another account verified from the same browser",
+    `
+    <p>Accounts are linked when they share technical data.</p>
+    <p>This usually happens if:</p>
+    <ul>
+      <li>The same device or Wi-Fi was used</li>
+      <li>Someone clicked another person’s verification link</li>
+      <li>Another account verified from the same browser</li>
+    </ul>
+    `,
     [
       { label: "Continue", action: "alt_permanent()" }
     ]
@@ -64,8 +79,11 @@ function alt_why() {
 function alt_permanent() {
   setScreen(
     "Can this be removed?",
-    "No.<br><br>Once an account is linked, the detection is permanent. " +
-    "We cannot edit or reset it.",
+    `
+    <p><strong>No.</strong></p>
+    <p>Once an account is linked, the detection is permanent.</p>
+    <p>We cannot edit or reset it.</p>
+    `,
     [
       { label: "Continue", action: "alt_lost_account()" }
     ]
@@ -75,8 +93,12 @@ function alt_permanent() {
 function alt_lost_account() {
   setScreen(
     "Important",
-    "If your original verified account was banned, deleted, hacked, " +
-    "or is no longer accessible, you cannot verify again with a new account.",
+    `
+    <p>
+      If your original verified account was banned, deleted, hacked,
+      or is no longer accessible, you cannot verify again with a new account.
+    </p>
+    `,
     [
       { label: "Continue", action: "alt_final()" }
     ]
@@ -86,16 +108,21 @@ function alt_lost_account() {
 function alt_final() {
   setScreen(
     "Who can help?",
-    "Only the staff of the server you are trying to join can decide to allow your account.<br><br>" +
-    "Double Counter cannot:<br>" +
-    "• Remove alt detections<br>" +
-    "• Override server bans<br>" +
-    "• Manually verify users",
+    `
+    <p>Only the staff of the server you are trying to join can decide to allow your account.</p>
+    <p>Double Counter cannot:</p>
+    <ul>
+      <li>Remove alt detections</li>
+      <li>Override server bans</li>
+      <li>Manually verify users</li>
+    </ul>
+    `,
     [
       { label: "Go back to start", action: "showMainMenu()" }
     ]
   );
 }
 
-showMainMenu();
+/* ITS ALIVE!!!! ITS ALIVE!!!! */
 
+showMainMenu();
