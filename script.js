@@ -17,13 +17,13 @@ function showMainMenu() {
     "Double Counter Support",
     `<p>What are you having trouble with?</p>`,
     [
-      { label: "How to Verify", action: "verify_info()" },
-      { label: "How to Delete Your Data", action: "data_delete()" },
-      { label: "Alt Detection", action: "alt_intro()" },
-      { label: "VPN Intrusion", action: "vpn_intro()" },
-      { label: "Crawlers are not allowed", action: "vpn_crawlers()" },
-      { label: "Setup", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" },
-      { label: "Other", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" }
+      { label: "❓ How to Verify", action: "verify_info()" },
+      { label: "🗑️ How to Delete Your Data", action: "data_delete()" },
+      { label: "🛡️ Alt Detection", action: "alt_intro()" },
+      { label: "🖲️ VPN Intrusion", action: "vpn_intro()" },
+      { label: "🤖 Crawlers are not allowed", action: "vpn_crawlers()" },
+      { label: "✨ Setup", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" },
+      { label: "🔗 Other", action: "alert('This flow is not added yet. Please visit the support server: https://discord.gg/doublecounter')" }
     ]
   );
 }
