@@ -1,66 +1,122 @@
+/* =========================
+   Base Layout
+   ========================= */
+
 body {
   font-family: Arial, sans-serif;
-  background: #0e0e0e;
-  color: white;
+  background: radial-gradient(circle at top, #111, #050505);
+  color: #f0f0f0;
+  margin: 0;
+}
+  
+
+/* Centered container but NOT full screen lock */
+
+#container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
+  padding: 60px 20px;
 }
 
+/* =========================
+   App Card
+   ========================= */
+
 #app {
-  max-width: 600px; 
+  width: 100%;
+  max-width: 650px;
+  background: #141414;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #222;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   text-align: center;
+}
+
+/* =========================
+   Typography
+   ========================= */
+
+h2 {
+  margin-top: 0;
+  font-size: 26px;
 }
 
 #app p,
 #app ul,
 #app ol {
   text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 600px;
+  max-width: 520px;
+  margin: 0 auto 16px;
+  color: #ccc;
 }
 
 #app ul,
 #app ol {
-  margin: 16px auto;
-  padding-left: 24px;
+  padding-left: 20px;
 }
 
 #app li {
   margin-bottom: 8px;
 }
 
+/* =========================
+   Buttons
+   ========================= */
+
 button {
   display: block;
   width: 100%;
   margin: 10px 0;
-  padding: 10px;
-  font-size: 20px;
+  padding: 12px;
+  font-size: 16px;
   cursor: pointer;
+
+  background: #1f1f1f;
+  border: 1px solid #2a2a2a;
+  color: #fff;
+  border-radius: 6px;
+
+  transition: 0.2s ease;
 }
 
-#container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+button:hover {
+  background: #2b2b2b;
+  transform: translateY(-1px);
 }
 
-#logo {
-  max-width: 80px; 
-  height: auto;
-  margin-bottom: 16px;
+/* Secondary (info buttons) */
+
+button:nth-last-child(-n+2) {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #333;
 }
 
+button:nth-last-child(-n+2):hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* =========================
+   Logo
+   ========================= */
+
+#dclogo {
+  max-width: 90px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* =========================
+   Disclaimer
+   ========================= */
 
 #disclaimer {
-  margin-top: 24px;
-  font-size: 14px;
-  color: #888;
-  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #777;
   max-width: 600px;
+  text-align: center;
 }
-
-
-
