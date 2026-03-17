@@ -371,6 +371,13 @@ function verify_info() {
     <p>
       If verification fails, return to the main menu and follow the relevant troubleshooting flow.
     </p>
+
+<p>Video tutorial below:</p>
+
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/vVt8Ai6ICL0?si=gPOHUzOMEVEmzKpo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    
     `,
     [
       { label: "Go back", action: "showMainMenu()" }
@@ -389,16 +396,19 @@ function data_delete() {
     <p>
       Important:
     </p>
-
+  
+    
     <ul>
       <li>Deleting your data does NOT remove alt detections</li>
       <li>It does NOT allow you to verify again</li>
       <li>It does NOT bypass server restrictions</li>
     </ul>
 
-    <p>
-      For further assistance, contact the support server or relevant staff.
-    </p>
+   <p>Video tutorial below:</p>
+
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/LumTWXj5tuU?si=mTZDJhf_Zj4J4BaW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     `,
     [
       { label: "Go back", action: "showMainMenu()" }
