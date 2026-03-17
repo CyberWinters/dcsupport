@@ -17,6 +17,8 @@ function showMainMenu() {
     "Double Counter Support",
     `<p>What are you having trouble with?</p>`,
     [
+      { label: "How to Verify", action: "verify_info()" },
+      { label: "How to Delete Your Data", action: "data_delete()" },
       { label: "Alt Detection", action: "alt_intro()" },
       { label: "VPN Intrusion", action: "vpn_intro()" },
       { label: "Crawlers are not allowed", action: "vpn_crawlers()" },
@@ -355,6 +357,54 @@ function vpn_final() {
   );
 }
 
+function verify_info() {
+  setScreen(
+    "How to Verify",
+    `
+    <p>To verify successfully:</p>
+
+    <ul>
+      <li>Open the message from the bot in your DMs or look for a verification panel</li>
+      <li>Disable VPNs, proxies, and privacy tools</li>
+      <li>Find the "Click me to Verify" verification link and open it in a normal browser (Chrome or such)</li>
+    </ul>
+    <p>
+      If verification fails, return to the main menu and follow the relevant troubleshooting flow.
+    </p>
+    `,
+    [
+      { label: "Go back", action: "showMainMenu()" }
+    ]
+  );
+}
+
+function data_delete() {
+  setScreen(
+    "Delete Your Data",
+    `
+    <p>
+      To request data deletion, you must use the /privacy command in any server that has Double Counter.
+    </p>
+
+    <p>
+      Important:
+    </p>
+
+    <ul>
+      <li>Deleting your data does NOT remove alt detections</li>
+      <li>It does NOT allow you to verify again</li>
+      <li>It does NOT bypass server restrictions</li>
+    </ul>
+
+    <p>
+      For further assistance, contact the support server or relevant staff.
+    </p>
+    `,
+    [
+      { label: "Go back", action: "showMainMenu()" }
+    ]
+  );
+}
 
 /* IT'S ALIVE!!!! IT'S ALIVE!!!! */
 
